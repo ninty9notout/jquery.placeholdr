@@ -1,0 +1,50 @@
+h1. jQuery Placeholdr
+
+Extended from a pre-existing plugin of the same name, this plugin provides support for placeholder text, and validation.
+
+Original author: Jonathan Stahlhacke (http://www.porkcullis.com/)
+
+h2. Options
+
+text: null,
+		reset: true,
+		class: "placeholdr",
+		// Soft validation, checks if value is provided
+		required: true,
+		// Hard validation, runs the value through this
+		validate: null
+
+*text* (default: "Please enter...")
+Type: String
+Default placeholder text. The order of placeholder text is: option defined > value defined > "Please enter..."
+
+*reset* (default: true)
+Type: Boolean
+Adds a check to the containing forms onSubmit event and empties the field if it still contains the placeholder text.
+
+*class* (default: "placeholdr")
+Type: String
+The class name applied to the element when the placeholder is visible.
+
+*required* (default: true)
+Type: Boolean
+Checks if field is empty and adds a "required" class to it if so.
+
+*validate* (default: null)
+Type: Function
+Callback to provide validation to the field. The callback should take in one argument (the field value) and return true if the value passes all tests.
+
+h2. Usage
+
+bc. <input type="text" id="Email1" value="mail@example.com">
+<input type="text" id="Email2">
+
+bc. $(document).ready(function() {
+	$('#Email1').placeholdr();
+	$('#Email2').placeholdr({
+		text: "mail@example.com",
+		validate: function(value) {
+			return /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
+		}
+	});
+});
