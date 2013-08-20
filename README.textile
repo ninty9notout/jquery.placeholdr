@@ -6,14 +6,6 @@ Original author: Jonathan Stahlhacke (http://www.porkcullis.com/)
 
 h2. Options
 
-text: null,
-		reset: true,
-		class: "placeholdr",
-		// Soft validation, checks if value is provided
-		required: true,
-		// Hard validation, runs the value through this
-		validate: null
-
 *text* (default: "Please enter...")
 Type: String
 Default placeholder text. The order of placeholder text is: option defined > value defined > "Please enter..."
